@@ -1,39 +1,44 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
+import Resultado from './Resultado';
+import { operaciones } from '../helpers/operaciones';
+
 const NumberInputs = ({name}) => {
+
   const [numeros, setNumeros] = useState({
     num1: 0,
     num2: 0,
   });
 
 
-  const {num1, num2} = numeros;
-
-  const handleChange = (e) => {
-  setNumeros({
-    num1: parseFloat(e.target.value),
-    num2: num2,
-    });
-  };
-
-  const handleChange2 = (e) => {
-  setNumeros({
-    num2: parseFloat(e.target.value),
-    num1: num1,
-    });
-  };
+  const {
+    handleChange, 
+    handleChange2, 
+    num1, 
+    num2, 
+    suma, 
+    resta, 
+    multiplicacion, 
+    division} = operaciones(numeros, setNumeros);
 
 
   return(
     <>
-        <label>
-            Número1:{""} <input value={num1} onChange={handleChange} type= "number"/>     
+        <label className='mx-2'>
+            Número 1:{""} <input value={num1} onChange={handleChange} type= "number"/>     
         </label>
 
-        <label>
-            Número2:{""} <input value={num2} onChange={handleChange2} type= "number"/>     
+        <label className='mx-2'>
+            Número 2:{""} <input value={num2} onChange={handleChange2} type= "number"/>     
         </label>
+
+        <Resultado operacion= "Suma" calculo={suma()} />
+        <Resultado operacion= "Resta" calculo={resta()} />
+        <Resultado operacion= "Multiplicación" calculo={multiplicacion()} />
+        <Resultado operacion= "División" calculo={division()} />
+
+
     </>
   )
 }

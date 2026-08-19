@@ -3,7 +3,7 @@ import Calculadora from './components/calculadora'
 
 const App = () => {
   return(
-    <div>
+    <div className='container text-center' htmlFor="floatingInput">
         <h1>CALCULADORA REACT + PWA</h1>
         <hr/>
         <Calculadora/>
