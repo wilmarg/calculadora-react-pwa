@@ -43,7 +43,7 @@ const NumberInputs = ({name}) => {
   )
 }
 
-NumberInputs.PropTypes = {
+NumberInputs.propTypes = {
     name: PropTypes.string,
 }
 

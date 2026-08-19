@@ -10,7 +10,7 @@ const Resultado = ({operacion, calculo}) => {
   )
 }
 
-Resultado.PropTypes = {
+Resultado.propTypes = {
     operacion: PropTypes.string,
     calculo: PropTypes.number,
 }
